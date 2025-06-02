@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crystal C - Boost Your Immunity</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
   <style>
     body {
       margin: 0;
@@ -12,49 +11,47 @@
       background: #fff;
       color: #333;
     }
+
     header {
       background: linear-gradient(to right, #f8e9a1, #f76c6c);
       color: white;
       padding: 60px 20px;
       text-align: center;
     }
+
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5em;
     }
+
     header p {
       font-size: 1.2rem;
       max-width: 700px;
       margin: auto;
     }
+
     .scroll-down {
       margin-top: 40px;
       font-size: 2rem;
       animation: bounce 2s infinite;
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(10px); }
     }
-    .glide {
-      margin: 60px auto;
-      max-width: 90%;
-    }
-    .glide__slide img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+
     .benefits {
       padding: 60px 20px;
       background: #f1f1f1;
       text-align: center;
     }
+
     .benefits h2 {
       font-size: 2rem;
       margin-bottom: 30px;
     }
+
     .benefit-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -62,18 +59,40 @@
       max-width: 1000px;
       margin: auto;
     }
-    .benefit-grid div {
+
+    .benefit-item {
       background: white;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
     }
+
+    .benefit-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .benefit-item img:hover {
+      transform: scale(1.1);
+    }
+
     footer {
       background: #f76c6c;
       color: white;
       text-align: center;
       padding: 40px 20px;
     }
+
     footer a {
       color: white;
       background: #333;
@@ -82,8 +101,30 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     footer a:hover {
       background: #111;
+    }
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      display: none;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    #lightbox:target {
+      display: flex;
     }
   </style>
 </head>
@@ -95,60 +136,59 @@
   <div class="scroll-down">↓</div>
 </header>
 
-<!-- Image Carousel -->
-<div class="glide">
-  <div class="glide__track" data-glide-el="track">
-    <ul class="glide__slides">
-      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Immune Support"></li>
-      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Glowing Skin"></li>
-      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Natural Energy"></li>
-    </ul>
-  </div>
-</div>
-
-<!-- Benefits Section -->
-<!-- Benefits Section -->
 <section class="benefits">
   <h2>Why Choose Crystal C?</h2>
   <div class="benefit-grid">
-    <div>
-      <img src="images/placeholder1.jpg" alt="Immunity Boost" style="width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:10px;">
+    <div class="benefit-item">
       <strong>✔ Immunity Boost</strong><br/>
       Supports your body’s natural defenses.
+      <a href="#lightbox"><img src="images/placeholder1.jpg" alt="Immunity Boost"></a>
     </div>
-    <div>
-      <img src="images/placeholder1.jpg" alt="Skin Radiance" style="width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:10px;">
+    <div class="benefit-item">
       <strong>✔ Skin Radiance</strong><br/>
       Promotes collagen production for healthy glow.
+      <a href="#lightbox"><img src="images/placeholder1.jpg" alt="Skin Radiance"></a>
     </div>
-    <div>
-      <img src="images/placeholder1.jpg" alt="Antioxidant Power" style="width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:10px;">
+    <div class="benefit-item">
       <strong>✔ Antioxidant Power</strong><br/>
       Combats free radicals and stress.
+      <a href="#lightbox"><img src="images/placeholder1.jpg" alt="Antioxidant Power"></a>
     </div>
-    <div>
-      <img src="images/placeholder1.jpg" alt="Gentle & Natural" style="width:80px; height:80px; object-fit:cover; border-radius:50%; margin-bottom:10px;">
+    <div class="benefit-item">
       <strong>✔ Gentle & Natural</strong><br/>
       Plant-based formulation with no harsh additives.
+      <a href="#lightbox"><img src="images/placeholder1.jpg" alt="Gentle & Natural"></a>
     </div>
   </div>
 </section>
 
-
-<!-- Call to Action -->
 <footer>
   <p>Ready to start your journey to better health?</p>
   <a href="https://lifesource.shopping" target="_blank">Shop Crystal C Now</a>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<!-- Lightbox Element -->
+<div id="lightbox" onclick="this.style.display='none'">
+  <img src="images/placeholder1.jpg" alt="Zoomed image">
+</div>
+
 <script>
-  new Glide('.glide', {
-    type: 'carousel',
-    perView: 1,
-    autoplay: 2500,
-    hoverpause: true
-  }).mount();
+  // Replace all benefit image links with lightbox functionality
+  document.querySelectorAll('.benefit-item a img').forEach((img, index) => {
+    img.parentElement.addEventListener('click', function (e) {
+      e.preventDefault();
+      const lightbox = document.getElementById('lightbox');
+      const lightImg = lightbox.querySelector('img');
+      lightImg.src = img.src;
+      lightImg.alt = img.alt;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  // Close lightbox on click
+  document.getElementById('lightbox').addEventListener('click', function () {
+    this.style.display = 'none';
+  });
 </script>
 
 </body>
