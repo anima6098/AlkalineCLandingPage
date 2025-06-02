@@ -139,51 +139,76 @@
     #lightbox:target {
       display: flex;
     }
+
     .testimonials {
-  padding: 60px 20px;
-  background: #fff;
-  text-align: center;
-}
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
 
-.testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
+    .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
 
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-.testimonial-card {
-  background: #f1f1f1;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .testimonial-card {
+      background: #f1f1f1;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.testimonial-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
 
-.testimonial-card p {
-  font-style: italic;
-  margin-bottom: 10px;
-}
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
 
-.testimonial-card strong {
-  color: #333;
-}
+    .testimonial-card strong {
+      color: #333;
+    }
+
+    /* Music player style */
+    #music-player {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #music-player button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #f76c6c;
+      color: white;
+      cursor: pointer;
+    }
+
+    #music-player button:hover {
+      background-color: #d94b4b;
+    }
+
+    #music-player.hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -193,32 +218,15 @@
   <p>Your daily dose of powerful, natural Vitamin C. Brighten your day and your immune system.</p>
   <div class="scroll-down">↓</div>
 </header>
-  
+
+<!-- Music Player -->
+<div id="music-player">
+  <button id="playMusicBtn">▶️ Start Experience</button>
+</div>
 <audio id="bgmusic" loop>
   <source src="music/theme.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-
-<script>
-  function startMusic() {
-    const audio = document.getElementById('bgmusic');
-    audio.play().catch((e) => {
-      console.warn('Autoplay was blocked:', e);
-    });
-    // Only run once
-    document.removeEventListener('click', startMusic);
-    document.removeEventListener('scroll', startMusic);
-    document.removeEventListener('mousemove', startMusic);
-    document.removeEventListener('touchstart', startMusic);
-  }
-
-  // Play music after user interacts
-  document.addEventListener('click', startMusic);
-  document.addEventListener('scroll', startMusic);
-  document.addEventListener('mousemove', startMusic);
-  document.addEventListener('touchstart', startMusic);
-</script>
-
 
 <!-- Image Carousel -->
 <div class="glide">
@@ -257,7 +265,7 @@
     </div>
   </div>
 </section>
-  
+
 <!-- Testimonials Section -->
 <section class="testimonials">
   <h2>What People Are Saying</h2>
@@ -315,6 +323,16 @@
 
   document.getElementById('lightbox').addEventListener('click', function () {
     this.style.display = 'none';
+  });
+
+  // Music Play on Button Click
+  document.getElementById('playMusicBtn').addEventListener('click', function () {
+    const audio = document.getElementById('bgmusic');
+    audio.play().then(() => {
+      document.getElementById('music-player').classList.add('hidden');
+    }).catch(err => {
+      console.warn('Audio play failed:', err);
+    });
   });
 </script>
 
