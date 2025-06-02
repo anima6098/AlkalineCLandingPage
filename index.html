@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitamin C by LifeSource</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fffef8;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 4em 1em 2em;
+      background: linear-gradient(135deg, #ffe600, #fff);
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #d35400;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+      color: #555;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5em;
+      padding: 0.8em 1.6em;
+      background-color: #f39c12;
+      color: white;
+      font-size: 1em;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .carousel-section {
+      padding: 3em 1em;
+      background: #fff;
+    }
+    .glide__slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .features {
+      background: #fef9e7;
+      padding: 3em 1em;
+      text-align: center;
+    }
+    .features h2 {
+      margin-bottom: 1em;
+      color: #d35400;
+    }
+    .features-grid {
+      display: grid;
+      gap: 1.5em;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .feature {
+      background: white;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: #f39c12;
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+    }
+    footer a {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Boost Your Immunity</h1>
+    <p>Discover the power of Vitamin C from LifeSource – naturally potent, deliciously effective.</p>
+    <a href="https://lifesource.shopping" class="cta-button">Shop Now</a>
+  </header>
+
+  <section class="carousel-section">
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide"><img src="https://via.placeholder.com/600x400?text=Immune+Support" alt="Immune Support" /></li>
+          <li class="glide__slide"><img src="https://via.placeholder.com/600x400?text=Natural+Ingredients" alt="Natural Ingredients" /></li>
+          <li class="glide__slide"><img src="https://via.placeholder.com/600x400?text=Delicious+Flavor" alt="Delicious Flavor" /></li>
+          <li class="glide__slide"><img src="https://via.placeholder.com/600x400?text=Daily+Wellness" alt="Daily Wellness" /></li>
+        </ul>
+      </div>
+      <div data-glide-el="controls">
+        <button data-glide-dir="<">Prev</button>
+        <button data-glide-dir=">">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why You'll Love It</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>High Potency</h3>
+        <p>Each dose delivers a powerful boost of pure vitamin C.</p>
+      </div>
+      <div class="feature">
+        <h3>100% Natural</h3>
+        <p>Made with organic fruit extracts and zero artificial additives.</p>
+      </div>
+      <div class="feature">
+        <h3>Tastes Great</h3>
+        <p>Refreshing citrus flavor you’ll look forward to daily.</p>
+      </div>
+      <div class="feature">
+        <h3>Backed by Science</h3>
+        <p>Formulated for optimal absorption and effectiveness.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ready to feel your best? <a href="https://lifesource.shopping">Visit our store</a> and start your wellness journey today.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script>
+    new Glide('.glide', {
+      type: 'carousel',
+      autoplay: 3000,
+      hoverpause: true,
+      animationDuration: 700,
+      rewind: true,
+      perView: 1
+    }).mount();
+  </script>
+</body>
+</html>
