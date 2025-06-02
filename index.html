@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crystal C - Boost Your Immunity</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
   <style>
     body {
       margin: 0;
@@ -39,6 +40,18 @@
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(10px); }
+    }
+
+    .glide {
+      margin: 60px auto;
+      max-width: 90%;
+    }
+
+    .glide__slide img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     .benefits {
@@ -136,6 +149,18 @@
   <div class="scroll-down">↓</div>
 </header>
 
+<!-- Image Carousel -->
+<div class="glide">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Immune Support"></li>
+      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Glowing Skin"></li>
+      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Natural Energy"></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Benefits Section -->
 <section class="benefits">
   <h2>Why Choose Crystal C?</h2>
   <div class="benefit-grid">
@@ -162,6 +187,7 @@
   </div>
 </section>
 
+<!-- Call to Action -->
 <footer>
   <p>Ready to start your journey to better health?</p>
   <a href="https://lifesource.shopping" target="_blank">Shop Crystal C Now</a>
@@ -172,9 +198,18 @@
   <img src="images/placeholder1.jpg" alt="Zoomed image">
 </div>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
-  // Replace all benefit image links with lightbox functionality
-  document.querySelectorAll('.benefit-item a img').forEach((img, index) => {
+  new Glide('.glide', {
+    type: 'carousel',
+    perView: 1,
+    autoplay: 2500,
+    hoverpause: true
+  }).mount();
+
+  // Lightbox script
+  document.querySelectorAll('.benefit-item a img').forEach((img) => {
     img.parentElement.addEventListener('click', function (e) {
       e.preventDefault();
       const lightbox = document.getElementById('lightbox');
@@ -185,7 +220,6 @@
     });
   });
 
-  // Close lightbox on click
   document.getElementById('lightbox').addEventListener('click', function () {
     this.style.display = 'none';
   });
