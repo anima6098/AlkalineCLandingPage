@@ -194,10 +194,31 @@
   <div class="scroll-down">↓</div>
 </header>
   
-<audio autoplay loop>
+<audio id="bgmusic" loop>
   <source src="music/theme.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
+<script>
+  function startMusic() {
+    const audio = document.getElementById('bgmusic');
+    audio.play().catch((e) => {
+      console.warn('Autoplay was blocked:', e);
+    });
+    // Only run once
+    document.removeEventListener('click', startMusic);
+    document.removeEventListener('scroll', startMusic);
+    document.removeEventListener('mousemove', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+  }
+
+  // Play music after user interacts
+  document.addEventListener('click', startMusic);
+  document.addEventListener('scroll', startMusic);
+  document.addEventListener('mousemove', startMusic);
+  document.addEventListener('touchstart', startMusic);
+</script>
+
 
 <!-- Image Carousel -->
 <div class="glide">
