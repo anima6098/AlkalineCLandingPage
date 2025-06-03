@@ -91,7 +91,6 @@
       object-fit: cover;
       border-radius: 12%;
       margin-top: 15px;
-      cursor: pointer;
       transition: transform 0.2s;
     }
 
@@ -139,7 +138,6 @@
       display: flex;
     }
 
-    /* Testimonials Carousel */
     .testimonials {
       padding: 60px 20px;
       background: #fff;
@@ -174,13 +172,13 @@
       border-radius: 12%;
       object-fit: cover;
       flex-shrink: 0;
+      cursor: pointer;
     }
 
     .testimonial-slide div {
       flex: 1;
     }
 
-    /* Music player style */
     #music-player {
       text-align: center;
       padding: 20px;
@@ -213,7 +211,6 @@
   <div class="scroll-down">↓</div>
 </header>
 
-<!-- Music Player -->
 <div id="music-player">
   <button id="playMusicBtn">▶️Play Music</button>
 </div>
@@ -222,7 +219,6 @@
   Your browser does not support the audio element.
 </audio>
 
-<!-- Image Carousel -->
 <div class="glide">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
@@ -236,54 +232,52 @@
   </div>
 </div>
 
-<!-- Benefits Section -->
 <section class="benefits">
   <h2>Why Choose Crystal C Alkaline?</h2>
   <div class="benefit-grid">
     <div class="benefit-item">
       <strong>✔ Non-Acidic & Gentle</strong><br/>
       Say goodbye to stomach irritation, even on an empty stomach.
-      <a href="#lightbox"><img src="images/b1.png" alt="Immunity Boost"></a>
+      <img src="images/b1.png" alt="Immunity Boost">
     </div>
     <div class="benefit-item">
       <strong>✔ Fast Absorption</strong><br/>
       Alkaline form allows your body to absorb more, faster.
-      <a href="#lightbox"><img src="images/b2.png" alt="Skin Radiance"></a>
+      <img src="images/b2.png" alt="Skin Radiance">
     </div>
     <div class="benefit-item">
       <strong>✔ Powerful Immune Defense</strong><br/>
       Helps fight fatigue, stress, and sickness naturally.
-      <a href="#lightbox"><img src="images/b3.png" alt="Antioxidant Power"></a>
+      <img src="images/b3.png" alt="Antioxidant Power">
     </div>
     <div class="benefit-item">
       <strong>✔ Supports Skin, Joints & Heart Health</strong><br/>
       Beyond immunity, it's full-body support.
-      <a href="#lightbox"><img src="images/b4.png" alt="Gentle & Natural"></a>
+      <img src="images/b4.png" alt="Gentle & Natural">
     </div>
     <div class="benefit-item">
       <strong>✔ Safe for Daily Use</strong><br/>
       No synthetic fillers, no crash, just consistent wellness.
-      <a href="#lightbox"><img src="images/b5.png" alt="Gentle & Natural"></a>
+      <img src="images/b5.png" alt="Gentle & Natural">
     </div>
     <div class="benefit-item">
       <strong>✔ Antioxidant Protection</strong><br/>
       Helps neutralize free radicals to support healthy aging and cell function.
-      <a href="#lightbox"><img src="images/b6.png" alt="Gentle & Natural"></a>
+      <img src="images/b6.png" alt="Gentle & Natural">
     </div>
     <div class="benefit-item">
       <strong>✔ Mood & Energy Support</strong><br/>
       Vitamin C plays a role in neurotransmitter health, promoting natural energy and mental clarity.
-      <a href="#lightbox"><img src="images/b7.png" alt="Gentle & Natural"></a>
+      <img src="images/b7.png" alt="Gentle & Natural">
     </div>
     <div class="benefit-item">
       <strong>✔ Backed by Science</strong><br/>
       Formulated based on clinical research to ensure effectiveness and safety you can trust.
-      <a href="#lightbox"><img src="images/b8.png" alt="Gentle & Natural"></a>
+      <img src="images/b8.png" alt="Gentle & Natural">
     </div>
   </div>
 </section>
 
-<!-- Testimonials Carousel -->
 <section class="testimonials">
   <h2>What People Are Saying</h2>
   <div class="glide testimonials-carousel">
@@ -321,18 +315,15 @@
   </div>
 </section>
 
-<!-- Call to Action -->
 <footer>
   <p>Ready to start your journey to better health?</p>
   <a href="https://lifesource.shopping" target="_blank">Shop Crystal C Now</a>
 </footer>
 
-<!-- Lightbox Element -->
-<div id="lightbox" onclick="this.style.display='none'">
+<div id="lightbox">
   <img src="images/placeholder1.jpg" alt="Zoomed image">
 </div>
 
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
   new Glide('.glide', {
@@ -349,8 +340,9 @@
     hoverpause: true
   }).mount();
 
-  document.querySelectorAll('.benefit-item a img').forEach((img) => {
-    img.parentElement.addEventListener('click', function (e) {
+  // Enable zoom only on testimonial images
+  document.querySelectorAll('.testimonial-slide img').forEach((img) => {
+    img.addEventListener('click', function (e) {
       e.preventDefault();
       const lightbox = document.getElementById('lightbox');
       const lightImg = lightbox.querySelector('img');
