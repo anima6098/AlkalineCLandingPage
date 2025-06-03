@@ -20,17 +20,6 @@
       text-align: center;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5em;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
     .scroll-down {
       margin-top: 40px;
       font-size: 2rem;
@@ -42,27 +31,38 @@
       50% { transform: translateY(10px); }
     }
 
+    /* Glide Image Carousel */
     .glide {
-      margin: 60px auto;
-      max-width: 90%;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .glide__slide {
+      position: relative;
+      width: 100%;
+      padding-top: 42%; /* approx 21:9 aspect ratio */
+      overflow: hidden;
     }
 
     .glide__slide img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-height: 300px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .glide__slide {
+        padding-top: 70%; /* taller image area on mobile */
+      }
     }
 
     .benefits {
       padding: 60px 20px;
       background: #f1f1f1;
       text-align: center;
-    }
-
-    .benefits h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
     }
 
     .benefit-grid {
@@ -81,7 +81,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
       text-align: center;
     }
 
@@ -97,6 +96,56 @@
 
     .benefit-item img:hover {
       transform: scale(1.1);
+    }
+
+    /* Testimonials Carousel */
+    .testimonials {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .testimonials-carousel {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .testimonial-slide {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      text-align: left;
+      background: #f1f1f1;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+
+    .testimonial-slide img {
+      width: 200px;
+      height: 200px;
+      border-radius: 12%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .testimonial-slide div {
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-slide {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .testimonial-slide img {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 15px;
+      }
     }
 
     footer {
@@ -135,52 +184,6 @@
       border-radius: 10px;
     }
 
-    #lightbox:target {
-      display: flex;
-    }
-
-    /* Testimonials Carousel */
-    .testimonials {
-      padding: 60px 20px;
-      background: #fff;
-      text-align: center;
-    }
-
-    .testimonials h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-
-    .testimonials-carousel {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .testimonial-slide {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      text-align: left;
-      background: #f1f1f1;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      flex-wrap: wrap;
-    }
-
-    .testimonial-slide img {
-      width: 200px;
-      height: 200px;
-      border-radius: 12%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .testimonial-slide div {
-      flex: 1;
-    }
-
-    /* Music player style */
     #music-player {
       text-align: center;
       padding: 20px;
@@ -226,9 +229,9 @@
 <div class="glide">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
-      <li class="glide__slide"><img src="images/gentle.jpg" alt="Immune Support"></li>
-      <li class="glide__slide"><img src="images/strong.jpg" alt="Glowing Skin"></li>
-      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Natural Energy"></li>
+      <li class="glide__slide"><img src="images/gentle.jpg" alt="Gentle on Your Stomach"></li>
+      <li class="glide__slide"><img src="images/strong.jpg" alt="Power for Your Immunity"></li>
+      <li class="glide__slide"><img src="images/placeholder1.jpg" alt="Placeholder"></li>
     </ul>
   </div>
 </div>
@@ -265,7 +268,7 @@
   </div>
 </section>
 
-<!-- Testimonials Carousel -->
+<!-- Testimonials Section -->
 <section class="testimonials">
   <h2>What People Are Saying</h2>
   <div class="glide testimonials-carousel">
@@ -320,7 +323,7 @@
   new Glide('.glide', {
     type: 'carousel',
     perView: 1,
-    autoplay: 2500,
+    autoplay: 3000,
     hoverpause: true
   }).mount();
 
@@ -340,10 +343,6 @@
       lightImg.alt = img.alt;
       lightbox.style.display = 'flex';
     });
-  });
-
-  document.getElementById('lightbox').addEventListener('click', function () {
-    this.style.display = 'none';
   });
 
   document.getElementById('playMusicBtn').addEventListener('click', function () {
