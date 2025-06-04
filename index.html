@@ -275,6 +275,40 @@
     #music-player.hidden {
       display: none;
     }
+    @media (max-width: 768px) {
+  .glide {
+    padding: 0 20px; /* less space needed on mobile */
+  }
+
+  .glide__arrow--left {
+    margin-left: 0; /* cancel out side offset */
+  }
+
+  .glide__arrow--right {
+    margin-right: 0;
+  }
+
+  .glide__arrow {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
+  .testimonial-slide {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-slide img {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-slide div {
+    flex: none;
+    width: 100%;
+  }
+}
+
   </style>
 </head>
 <body>
