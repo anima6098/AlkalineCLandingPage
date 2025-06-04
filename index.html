@@ -46,36 +46,50 @@
       margin: 60px auto;
       max-width: 90%;
     }
-    .glide {
-      position: relative; /* important for absolute arrows */
-    }
+.glide {
+  position: relative;
+  padding: 0 50px; /* Gives room for arrows without overlapping slides */
+}
 
-    .glide__arrows {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none; /* Let clicks pass through empty space */
-    }  
-    
-    .glide__arrow {
-      background: #f76c6c;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 50%;
-      font-size: 2rem;
-      cursor: pointer;
-      pointer-events: auto; /* Re-enable clicks for buttons */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background 0.2s;
-    }
-    
-    .glide__arrow:hover {
-      background: #d94b4b;
-    }
+.glide__arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.glide__arrow {
+  background: #f76c6c;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s;
+  position: relative;
+  z-index: 10;
+}
+
+/* Push them a bit farther from content */
+.glide__arrow--left {
+  margin-left: -40px;
+}
+
+.glide__arrow--right {
+  margin-right: -40px;
+}
+
+.glide__arrow:hover {
+  background: #d94b4b;
+}
+
     .glide__slide img {
       width: 100%;
       max-height: 300px;
