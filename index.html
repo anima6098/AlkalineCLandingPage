@@ -17,13 +17,19 @@
   </script>
 
   <!-- Google Ads Manual Conversion Function -->
- <script>
+<script>
 function gtag_report_conversion(url) {
+  try {
+    var fullUrl = new URL(url); // Ensures the colon is preserved
+  } catch (e) {
+    console.warn('Invalid URL passed to gtag_report_conversion:', url);
+    return true; // let it proceed anyway
+  }
+
   var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
+    window.location = fullUrl.href;
   };
+
   gtag('event', 'conversion', {
       'send_to': 'AW-17157719871/iHp5CK2n4dMaEL-OuPU_',
       'value': 1.0,
@@ -690,8 +696,8 @@ function gtag_report_conversion(url) {
 <!-- Call to Action -->
 <footer id="order">
   <p style="font-size:20px;">Ready to start your journey to better health?</p>
- <a href="https://m.me/honesthones"
-   onclick="return gtag_report_conversion(this.href);">
+<a href="https://m.me/honesthones"
+   onclick="return gtag_report_conversion(this.getAttribute('href')); return false;">
    Shop Crystal C Alkaline Now
 </a>
 
