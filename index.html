@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crystal C Alkaline - Boost Your Immunity</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17157719871"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17157719871');
+  </script>
+
+  <!-- Google Ads Manual Conversion Function -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17157719871/REPLACE_WITH_YOUR_LABEL', // Replace this!
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
   <style>
     body {
       margin: 0;
@@ -662,7 +688,10 @@
 <!-- Call to Action -->
 <footer>
   <p style="font-size:20px;">Ready to start your journey to better health?</p>
-  <a href="https://lmc0015.lifesource.shopping/index.php?option=com_store&action=view_product&prod_id=101" target="_blank">Shop Crystal C Alkaline Now</a>
+  <a href="https://lmc0015.lifesource.shopping/index.php?option=com_store&action=view_product&prod_id=101"
+     onclick="return gtag_report_conversion(this.href);">
+     Shop Crystal C Alkaline Now
+  </a>
 </footer>
 
 <!-- Lightbox -->
