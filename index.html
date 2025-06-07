@@ -19,27 +19,19 @@
   <!-- Google Ads Manual Conversion Function -->
 <script>
 function gtag_report_conversion(url) {
-  try {
-    var fullUrl = new URL(url); // Ensures the colon is preserved
-  } catch (e) {
-    console.warn('Invalid URL passed to gtag_report_conversion:', url);
-    return true; // let it proceed anyway
-  }
-
   var callback = function () {
-    window.location = fullUrl.href;
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
   };
-
   gtag('event', 'conversion', {
-      'send_to': 'AW-17157719871/iHp5CK2n4dMaEL-OuPU_',
-      'value': 1.0,
-      'currency': 'PHP',
+      'send_to': 'AW-17157719871/-evrCJqJmdUaEL-OuPU_',
       'event_callback': callback
   });
   return false;
 }
 </script>
-  <style>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -697,9 +689,10 @@ function gtag_report_conversion(url) {
 <footer id="order">
   <p style="font-size:20px;">Ready to start your journey to better health?</p>
 <a href="https://www.facebook.com/share/16Pf5ELd5Y/"
-   onclick="return gtag_report_conversion(this.getAttribute('href')); return false;">
+   onclick="gtag_report_conversion('https://www.facebook.com/share/16Pf5ELd5Y/'); return false;">
    Shop Crystal C Alkaline Now
 </a>
+
 
 </footer>
 
