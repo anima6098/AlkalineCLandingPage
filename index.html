@@ -32,12 +32,27 @@ function gtag_report_conversion(url) {
 }
 </script>
 <style>
+  @media (max-width: 480px) {
+  footer {
+    padding: 15px 10px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #fff;
       color: #333;
-      padding-bottom: 120px; /* should match or exceed the footer height */
+      padding-bottom: 140px; /* should match or exceed the footer height */
     }
 
     header {
@@ -246,16 +261,21 @@ function gtag_report_conversion(url) {
     }
 
     footer {
-    background: #f76c6c;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; 
+     background: #f76c6c;
+  color: white;
+  text-align: center;
+  padding: 20px 10px; /* reduced padding for mobile friendliness */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
     }
+  footer p {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
 
     footer a {
       color: white;
